@@ -42,7 +42,7 @@ log.info('server constructed');
 // port: config.port
 
 server.connection({
-    port: process.env.PORT || 3000
+    port: process.env.PORT || 3002
 
 });
 //debug('added port: ', config.port);
