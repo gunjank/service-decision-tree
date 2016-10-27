@@ -6,12 +6,12 @@ let aimlInterpreter = new AIMLInterpreter({
 });
 aimlInterpreter.loadAIMLFilesIntoArray([__dirname + '/citibike.aiml.xml']);
 
-// var callback = function (answer, wildCardArray, input) {
-//     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
-// };
+var callback = function (answer, wildCardArray, input) {
+    console.log(answer + ' | ' + wildCardArray + ' | ' + input);
+};
 
 // aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', callback);
-// aimlInterpreter.findAnswerInLoadedAIMLFiles('My name is Ben.', callback);
+//aimlInterpreter.findAnswerInLoadedAIMLFiles('SAVE MY home1 ADDRESS : asdfas jer ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', callback);
 // aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', function (answer, wildCardArray) {
 //     console.log(answer + ' | ' + wildCardArray + ' | ');

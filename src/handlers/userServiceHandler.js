@@ -6,42 +6,70 @@ const settings = require('../config/settings');
 
 let userServiceHandler = {
 
-    updateInsertUser: function (payloadData) {
+    updateInsertUser: function (payloadData, cb) {
         request({
-            url: settings.userServiceLocal,
+            url: settings.userService,
             method: 'POST',
             json: payloadData
         }, function (error, response, body) {
             if (error) log.error("User update/insert failed, deails - " + error);
             if (response) log.info("User update/insert service response status message is " + response.statusMessage);
             // if (body) log.debug("User update/insert service body -  " + body);
-
+            cb(response, error);
         });
     },
     getUser: function (userId, cb) {
 
         request({
-            url: settings.userServiceLocal + '/' + userId,
+            url: settings.userService + '/' + userId,
             method: 'GET'
 
         }, function (error, response, body) {
             if (error) log.error("Get user failed error details - " + error);
             if (response) log.info("Get user  response status message is " + response.statusMessage);
-            cb(response);
+            cb(response, error);
         });
     },
     getUserByAddressType: function (userId, addressType, cb) {
 
         request({
-            url: settings.userServiceLocal + '/' + userId + "/address/" + addressType,
+            url: settings.userService + '/' + userId + "/address/" + addressType,
             method: 'GET'
 
         }, function (error, response, body) {
             if (error) log.error("Get user ByAddressType failed error details -  " + error);
             if (response) log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
-            cb(response);
+            cb(response, error);
+        });
+    },
+    createOrUpdateUserAddress: function (payloadData, cb) {
+        request({
+            url: settings.userService + "/address",
+            method: 'POST',
+            json: payloadData
+        }, function (error, response, body) {
+            if (error) log.error("Get user ByAddressType failed error details -  " + error);
+            if (response) log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
+            cb(response, error);
+        });
+    },
+
+    geocode: function (address, cb) {
+        request({
+            url: settings.userService + "/geocode",
+            method: 'GET',
+            qs: {
+                address: address
+            }
+        }, function (error, response, body) {
+            if (error) log.error("Address validation service failed -  " + error);
+            if (response) log.info("address validation successful and response status message is - " + response.statusMessage);
+            cb(response, error);
         });
     }
+
+
+
 
 }
 module.exports = userServiceHandler;

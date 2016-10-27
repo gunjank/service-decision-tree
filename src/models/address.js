@@ -1,6 +1,6 @@
 'use strict';
 
-var User = function (o) {
+var Address = function (o) {
 
     this.userId = o.user_id;
     this.lon = o.lon;
@@ -11,4 +11,4 @@ var User = function (o) {
 
 }
 
-module.exports = User;
+module.exports = Address;

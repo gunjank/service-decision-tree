@@ -3,9 +3,9 @@
 
     
     <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME CITIBIKES NEAR *</pattern><template>1002</template></category>
-    <category><pattern>FORMAT : PLEASE PROVIDE YOUR <set addressType='address'>*</set> ADDRESS</pattern><template>Please provide your  <get addressType='address'/> address. E.g. My Home Address - street name, city state, zip</template></category>
-    <category><pattern>MY NAME IS <set name='clientName'>*</set></pattern><template><get name='clientName'/> <random><li>Hey</li><li>Hi</li><li>Hello</li></random> !</template></category>
+    <category><pattern>SHOW ME CITIBIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>FORMAT : PLEASE PROVIDE YOUR <set addressType='address'>*</set> ADDRESS</pattern><template>Please provide your <get addressType='address'/> address. E.g. Save my <get addressType='address'/> address : street name, city state, zip</template></category>
+    <category><pattern>SAVE MY * ADDRESS : *</pattern><template>B</template></category>
     <category><pattern>WHAT IS MY NAME</pattern><template>Your name is <get name='clientName'/></template></category>
     <category><pattern>WHO ARE YOU</pattern><template><srai>WHAT IS YOUR NAME</srai></template></category>
     <category><pattern>GIVE ME A LETTER</pattern><template><random><li>A</li><li>B</li><li>C</li></random></template></category>
