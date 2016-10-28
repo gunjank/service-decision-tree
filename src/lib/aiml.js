@@ -1,6 +1,6 @@
 'use strict';
 
-const AIMLInterpreter = require('AIMLInterpreter');
+const AIMLInterpreter = require('aimlinterpreter');
 let aimlInterpreter = new AIMLInterpreter({
 
 });

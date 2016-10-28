@@ -9,13 +9,14 @@ let path = require('path'),
     Inert = require('inert'),
     Vision = require('vision'),
     HapiSwagger = require('hapi-swagger'),
+    settings = require('./config/settings'),
     Pack = require('../package');
 
 
 
 //log clas will now globally available
 global.log = bunyan.createLogger({
-    name: 'application-name'
+    name: 'service-decision-tree'
 });
 
 
@@ -42,7 +43,7 @@ log.info('server constructed');
 // port: config.port
 
 server.connection({
-    port: process.env.PORT || 3002
+    port: settings.port
 
 });
 //debug('added port: ', config.port);
