@@ -1,6 +1,7 @@
 'use strict';
 
 let Message = require('../models/message');
+let ParsedMessage = require('../models/parsedMessage');
 let aiml = require('../lib/aiml');
 const userServiceHandler = require('./userServiceHandler');
 const citibikeServiceHandler = require('./citibikeServiceHandler');
@@ -13,6 +14,7 @@ module.exports = {
 
     parseMessage: function (request, reply) {
         let message = request.payload;
+        let parsedMessage = new ParsedMessage({});
         aiml.findAnswerInLoadedAIMLFiles(message.text, function (answer, wildCardArray, input) {
             switch (answer) {
                 case "A":
@@ -21,7 +23,11 @@ module.exports = {
                         userServiceHandler.getUserByAddressType(message.userId, type, function (result, error) {
                             if (error) {
                                 log.info("getUserByAddressType" + error);
-                                reply("Server error - getting address")
+                                parsedMessage.error = error;
+                                parsedMessage.messageType = "error";
+                                parsedMessage.messageCode = 0;
+                                parsedMessage.message = "Server error - getting address";
+                                reply(parsedMessage);
                             } else {
                                 let response = new Response(JSON.parse(result.body));
                                 //user may have multiple! home address or no home address or one home 
@@ -36,21 +42,42 @@ module.exports = {
                                     citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
                                         if (error) {
                                             log.info("citibikeServiceHandler.addressNearBy" + error);
-                                            reply("Server error - getting addressNearBy from citibike api")
+                                            parsedMessage.error = error;
+                                            parsedMessage.messageType = "error";
+                                            parsedMessage.messageCode = 0;
+                                            parsedMessage.message = "Server error - getting addressNearBy from citibike api";
+                                            reply(parsedMessage);
                                         } else {
-                                            reply(result.body);
+
+                                            parsedMessage.messageType = "nearest_station_list";
+                                            parsedMessage.messageCode = 1;
+                                            parsedMessage.message = "nearest stations";
+                                            parsedMessage.data = result.body
+                                            reply(parsedMessage);
                                         }
                                     })
 
                                 } else { // no home
                                     aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + type + " ADDRESS", function (answer, wildCardArray, input) {
-                                        reply(answer);
+                                        parsedMessage.messageType = "need_address";
+                                        parsedMessage.messageCode = 2;
+                                        parsedMessage.message = "asking for address";
+                                        parsedMessage.data = {
+                                            msg: answer
+                                        }
+                                        reply(parsedMessage);
                                     });
                                 }
                             }
                         });
                     } else {
-                        reply("");
+                        parsedMessage.error = {
+                            msg: "given address type is invalid"
+                        };
+                        parsedMessage.messageType = "error";
+                        parsedMessage.messageCode = 0;
+                        parsedMessage.message = "given address type is invalid";
+                        reply(parsedMessage);
                     }
                     break;
 
@@ -61,7 +88,11 @@ module.exports = {
                         userServiceHandler.geocode(payload, function (result, error) {
                             if (error) {
                                 log.info("getUserByAddressType" + error);
-                                reply("Server error - getting address")
+                                parsedMessage.error = error;
+                                parsedMessage.messageType = "error";
+                                parsedMessage.messageCode = 0;
+                                parsedMessage.message = "Server error - getting address";
+                                reply(parsedMessage);
                             } else {
                                 let response = new Response(JSON.parse(result.body));
                                 if (response.statusCode === 1 && response.data.results != null && response.data.results.length > 0) {
@@ -78,29 +109,77 @@ module.exports = {
                                     userServiceHandler.createOrUpdateUserAddress(userAddress, function (result, error) {
                                         if (error) {
                                             log.info("createOrUpdateUserAddress" + error);
-                                            reply("Server error - update/save  user address ")
+                                            parsedMessage.error = error;
+                                            parsedMessage.messageType = "error";
+                                            parsedMessage.messageCode = 0;
+                                            parsedMessage.message = "Server error - update/save  user address";
+                                            reply(parsedMessage);
                                         } else {
                                             let responseAddressUpdate = new Response(result.body);
                                             if (responseAddressUpdate.statusCode === 1) {
-                                                reply("address saved");
+
+
+
+                                                parsedMessage.messageType = "address_saved";
+                                                parsedMessage.messageCode = 3;
+                                                parsedMessage.message = "given address saved successfully";
+                                                parsedMessage.data = {
+                                                    msg: "address saved"
+                                                }
+                                                reply(parsedMessage);
+
                                             } else {
-                                                reply("unable to save your address");
+                                                parsedMessage.error = {
+                                                    msg: "unable to save your address"
+                                                };
+                                                parsedMessage.messageType = "error";
+                                                parsedMessage.messageCode = 0;
+                                                parsedMessage.message = "unable to save your address";
+                                                reply(parsedMessage);
+
                                             }
                                         }
                                     });
                                 } else {
                                     log.info("status code - " + response.stat6usCode + " response.data.results either null or 0 length array ");
-                                    reply("");
+                                    parsedMessage.error = {
+                                        msg: "matching stations response.data.results either null or 0 length array"
+                                    };
+                                    parsedMessage.messageType = "error";
+                                    parsedMessage.messageCode = 0;
+                                    parsedMessage.message = "matching result not found correctly";
+                                    reply(parsedMessage);
                                 }
 
                             }
                         });
                     } else {
-                        reply("");
+                        parsedMessage.error = {
+                            msg: "given address type is invalid or address having invalid characters"
+                        };
+                        parsedMessage.messageType = "error";
+                        parsedMessage.messageCode = 0;
+                        parsedMessage.message = "given address type is invalid";
+                        reply(parsedMessage);
                     }
                     break;
+                case "C":
+                    parsedMessage.messageType = "show_map";
+                    parsedMessage.messageCode = 4;
+                    parsedMessage.message = "dummy map data";
+                    parsedMessage.data = {
+                        msg: "map data"
+                    }
+                    reply(parsedMessage);
+                    break;
                 default:
-                    reply(answer);
+                    parsedMessage.messageType = "error";
+                    parsedMessage.messageCode = 0;
+                    parsedMessage.error = {
+                        msg: "matching question not found"
+                    }
+                    parsedMessage.message = "matching question not found";
+                    reply(parsedMessage);
             }
 
 

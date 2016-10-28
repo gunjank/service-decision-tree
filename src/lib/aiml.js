@@ -10,7 +10,7 @@ var callback = function (answer, wildCardArray, input) {
     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
 };
 
-// aimlInterpreter.findAnswerInLoadedAIMLFiles('What is your name?', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('EXPLAIN * asdf ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SAVE MY home1 ADDRESS : asdfas jer ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', callback);
 // aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', function (answer, wildCardArray) {
