@@ -8,6 +8,7 @@ const citibikeServiceHandler = require('./citibikeServiceHandler');
 const Address = require('../models/address');
 const Response = require('../models/response');
 
+
 //exports
 module.exports = {
 
@@ -19,58 +20,113 @@ module.exports = {
             switch (answer) {
                 case "A":
                     if (wildCardArray.length > 0) {
-                        let type = wildCardArray[0];
-                        userServiceHandler.getUserByAddressType(message.userId, type, function (result, error) {
-                            if (error) {
-                                log.info("getUserByAddressType" + error);
-                                parsedMessage.error = error;
-                                parsedMessage.messageType = "error";
-                                parsedMessage.messageCode = 0;
-                                parsedMessage.message = "Server error - getting address";
-                                reply(parsedMessage);
-                            } else {
-                                let response = new Response(JSON.parse(result.body));
-                                //user may have multiple! home address or no home address or one home 
-                                //one home
-                                if (response.statusCode === 1) {
-                                    let address = new Address(response.data[0]);
-                                    //call user service and get nearest stations
-                                    let nearByAddPayload = {
-                                        lon: address.lon,
-                                        lat: address.lat
-                                    };
-                                    citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
-                                        if (error) {
-                                            log.info("citibikeServiceHandler.addressNearBy" + error);
-                                            parsedMessage.error = error;
-                                            parsedMessage.messageType = "error";
-                                            parsedMessage.messageCode = 0;
-                                            parsedMessage.message = "Server error - getting addressNearBy from citibike api";
-                                            reply(parsedMessage);
-                                        } else {
+                        let addressTypeOrStr = wildCardArray[0];
+                        if (addressTypeOrStr.split(" ").length > 1) { // e.g show me bike near 135 river drive  
+                            //call google api and get address text and lat long
+                            const payload = addressTypeOrStr;
+                            userServiceHandler.geocode(payload, function (result, error) {
+                                if (error) {
+                                    log.info("getUserByAddressType" + error);
+                                    parsedMessage.error = error;
+                                    parsedMessage.messageType = "error";
+                                    parsedMessage.messageCode = 0;
+                                    parsedMessage.message = "Server error - getting address";
+                                    reply(parsedMessage);
+                                } else {
+                                    //asdf
+                                    let response = new Response(JSON.parse(result.body));
+                                    if (response.statusCode === 1 && response.data.results != null && response.data.results.length > 0) {
+                                        log.info("google returned location, good to go for station search ");
+                                        let location = response.data.results[0].geometry.location;
+                                        const nearByAddPayload = {
+                                            lon: location.lng,
+                                            lat: location.lat
+                                        };
+                                        citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
+                                            if (error) {
+                                                log.info("citibikeServiceHandler.addressNearBy" + error);
+                                                parsedMessage.error = error;
+                                                parsedMessage.messageType = "error";
+                                                parsedMessage.messageCode = 0;
+                                                parsedMessage.message = "Server error - getting addressNearBy from citibike api";
+                                                reply(parsedMessage);
+                                            } else {
 
-                                            parsedMessage.messageType = "nearest_station_list";
-                                            parsedMessage.messageCode = 1;
-                                            parsedMessage.message = "nearest stations";
-                                            parsedMessage.data = result.body
-                                            reply(parsedMessage);
-                                        }
-                                    })
-
-                                } else { // no home
-                                    aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + type + " ADDRESS", function (answer, wildCardArray, input) {
-                                        parsedMessage.messageType = "need_address";
-                                        parsedMessage.messageCode = 2;
-                                        parsedMessage.message = "asking for address";
-                                        parsedMessage.data = {
-                                            msg: answer
-                                        }
+                                                parsedMessage.messageType = "nearest_station_list";
+                                                parsedMessage.messageCode = 1;
+                                                parsedMessage.message = "nearest stations";
+                                                parsedMessage.data = result.body
+                                                reply(parsedMessage);
+                                            }
+                                        }); //end of addressNearBy
+                                    } //else of geocode response validation
+                                    else {
+                                        log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for geocode service ");
+                                        parsedMessage.error = {
+                                            msg: "matching address not found through geocode service"
+                                        };
+                                        parsedMessage.messageType = "error";
+                                        parsedMessage.messageCode = 0;
+                                        parsedMessage.message = "matching address not found through geocode service";
                                         reply(parsedMessage);
-                                    });
+                                    } //end of geocode response validation
+                                } //end of geo code success handler 
+                            });
+                            //call citibikeServiceHandler.addressNearBy
+                        } else {
+                            userServiceHandler.getUserByAddressType(message.userId, addressTypeOrStr, function (result, error) {
+                                if (error) {
+                                    log.info("getUserByAddressType" + error);
+                                    parsedMessage.error = error;
+                                    parsedMessage.messageType = "error";
+                                    parsedMessage.messageCode = 0;
+                                    parsedMessage.message = "Server error - getting address";
+                                    reply(parsedMessage);
+                                } else {
+                                    let response = new Response(JSON.parse(result.body));
+                                    //user may have multiple! home address or no home address or one home 
+                                    //one home
+                                    if (response.statusCode === 1) {
+                                        let address = new Address(response.data[0]);
+                                        //call user service and get nearest stations
+                                        let nearByAddPayload = {
+                                            lon: address.lon,
+                                            lat: address.lat
+                                        };
+                                        citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
+                                            if (error) {
+                                                log.info("citibikeServiceHandler.addressNearBy" + error);
+                                                parsedMessage.error = error;
+                                                parsedMessage.messageType = "error";
+                                                parsedMessage.messageCode = 0;
+                                                parsedMessage.message = "Server error - getting addressNearBy from citibike api";
+                                                reply(parsedMessage);
+                                            } else {
+
+                                                parsedMessage.messageType = "nearest_station_list";
+                                                parsedMessage.messageCode = 1;
+                                                parsedMessage.message = "nearest stations";
+                                                parsedMessage.data = result.body
+                                                reply(parsedMessage);
+                                            }
+                                        });
+
+                                    } else { // no home
+                                        aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + addressTypeOrStr + " ADDRESS", function (answer, wildCardArray, input) {
+                                            parsedMessage.messageType = "need_address";
+                                            parsedMessage.messageCode = 2;
+                                            parsedMessage.message = "asking for address";
+                                            parsedMessage.data = {
+                                                msg: answer
+                                            }
+                                            reply(parsedMessage);
+                                        });
+                                    }
                                 }
-                            }
-                        });
-                    } else {
+                            });
+                        } //if and else both covered
+
+                    } else { //TEMPLATE A BUT NO * FOUND 
                         parsedMessage.error = {
                             msg: "given address type is invalid"
                         };
@@ -141,13 +197,13 @@ module.exports = {
                                         }
                                     });
                                 } else {
-                                    log.info("status code - " + response.stat6usCode + " response.data.results either null or 0 length array ");
+                                    log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for geocode service ");
                                     parsedMessage.error = {
-                                        msg: "matching stations response.data.results either null or 0 length array"
+                                        msg: "matching address not found through geocode service"
                                     };
                                     parsedMessage.messageType = "error";
                                     parsedMessage.messageCode = 0;
-                                    parsedMessage.message = "matching result not found correctly";
+                                    parsedMessage.message = "matching address not found through geocode service";
                                     reply(parsedMessage);
                                 }
 
@@ -176,9 +232,9 @@ module.exports = {
                     parsedMessage.messageType = "error";
                     parsedMessage.messageCode = 0;
                     parsedMessage.error = {
-                        msg: "matching question not found"
+                        msg: answer
                     }
-                    parsedMessage.message = "matching question not found";
+                    parsedMessage.message = answer;
                     reply(parsedMessage);
             }
 

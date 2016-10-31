@@ -13,6 +13,7 @@ let getUserService = function () {
 let settings = {
     userService: getUserService(),
     citiBikeService: `http://service-citibike.cfapps.io/v1`,
+    noAddressFound: `I was unable to find that address. Please try a different address!`,
     port: process.env.PORT || '3002'
 }
 
