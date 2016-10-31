@@ -10,7 +10,7 @@ var callback = function (answer, wildCardArray, input) {
     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
 };
 
-//aimlInterpreter.findAnswerInLoadedAIMLFiles('TEST MULTIPLE AA WILDCARDS bbbbb56 sdfasdf', callback);
+aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEARhome', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR 35 RIVER DRIVE ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SAVE MY home1 ADDRESS : asdfas jer ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', callback);

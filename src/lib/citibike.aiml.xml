@@ -3,6 +3,9 @@
 
     
     <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
+     <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME BIKE NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME EMOJI NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME 🚲 NEAR *</pattern><template>A</template></category>
