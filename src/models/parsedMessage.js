@@ -1,6 +1,15 @@
 'use strict';
 
-
+//messageCode 
+/**
+ * 0 = ERROR
+ * 1 = NEAREST STATION LIST
+ * 2 = ASKING FOR ADDRESS
+ * 3 = ADDRESS SAVED
+ * 4 = GREETINGS 
+ * 5 = ASKING FOR ADDRESS FOR SEARCH
+ * 
+ */
 let ParsedMessage = function (o) {
     this.messageCode = o.messageCode;
     this.messageType = o.messageType;

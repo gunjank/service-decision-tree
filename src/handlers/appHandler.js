@@ -24,7 +24,7 @@ module.exports = {
                         if (addressTypeOrStr.split(" ").length > 1) { // e.g show me bike near 135 river drive  
                             //call google api and get address text and lat long
                             const payload = addressTypeOrStr;
-                            userServiceHandler.geocode(payload, function (result, error) {
+                            userServiceHandler.placeGeocode(payload, function (result, error) {
                                 if (error) {
                                     log.info("getUserByAddressType" + error);
                                     parsedMessage.error = error;
@@ -59,17 +59,17 @@ module.exports = {
                                                 reply(parsedMessage);
                                             }
                                         }); //end of addressNearBy
-                                    } //else of geocode response validation
+                                    } //else of placeGeocode response validation
                                     else {
-                                        log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for geocode service ");
+                                        log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for placeGeocode service ");
                                         parsedMessage.error = {
-                                            msg: "matching address not found through geocode service"
+                                            msg: "matching address not found through placeGeocode service"
                                         };
                                         parsedMessage.messageType = "error";
                                         parsedMessage.messageCode = 0;
-                                        parsedMessage.message = "matching address not found through geocode service";
+                                        parsedMessage.message = "matching address not found through placeGeocode service";
                                         reply(parsedMessage);
-                                    } //end of geocode response validation
+                                    } //end of placeGeocode response validation
                                 } //end of geo code success handler 
                             });
                             //call citibikeServiceHandler.addressNearBy
@@ -113,12 +113,9 @@ module.exports = {
 
                                     } else { // no home
                                         aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + addressTypeOrStr + " ADDRESS", function (answer, wildCardArray, input) {
-                                            parsedMessage.messageType = "need_address";
+                                            parsedMessage.messageType = "need_address_to_save";
                                             parsedMessage.messageCode = 2;
-                                            parsedMessage.message = "asking for address";
-                                            parsedMessage.data = {
-                                                msg: answer
-                                            }
+                                            parsedMessage.message = answer;
                                             reply(parsedMessage);
                                         });
                                     }
@@ -126,14 +123,13 @@ module.exports = {
                             });
                         } //if and else both covered
 
-                    } else { //TEMPLATE A BUT NO * FOUND 
-                        parsedMessage.error = {
-                            msg: "given address type is invalid"
-                        };
-                        parsedMessage.messageType = "error";
-                        parsedMessage.messageCode = 0;
-                        parsedMessage.message = "given address type is invalid";
-                        reply(parsedMessage);
+                    } else { //TEMPLATE A BUT NO * OR SEARCH KEYWORD FOUND 
+                        aiml.findAnswerInLoadedAIMLFiles("ASK FOR ADDRESS", function (answer, wildCardArray, input) {
+                            parsedMessage.messageType = "Asking_address";
+                            parsedMessage.messageCode = 5;
+                            parsedMessage.message = answer;
+                            reply(parsedMessage);
+                        });
                     }
                     break;
 
@@ -141,7 +137,7 @@ module.exports = {
                     //reply("case B");
                     if (wildCardArray.length > 1) {
                         let payload = wildCardArray[1];
-                        userServiceHandler.geocode(payload, function (result, error) {
+                        userServiceHandler.placeGeocode(payload, function (result, error) {
                             if (error) {
                                 log.info("getUserByAddressType" + error);
                                 parsedMessage.error = error;
@@ -173,15 +169,9 @@ module.exports = {
                                         } else {
                                             let responseAddressUpdate = new Response(result.body);
                                             if (responseAddressUpdate.statusCode === 1) {
-
-
-
                                                 parsedMessage.messageType = "address_saved";
                                                 parsedMessage.messageCode = 3;
-                                                parsedMessage.message = "given address saved successfully";
-                                                parsedMessage.data = {
-                                                    msg: "address saved"
-                                                }
+                                                parsedMessage.message = "Given address saved successfully!";
                                                 reply(parsedMessage);
 
                                             } else {
@@ -197,13 +187,13 @@ module.exports = {
                                         }
                                     });
                                 } else {
-                                    log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for geocode service ");
+                                    log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for placeGeocode service ");
                                     parsedMessage.error = {
-                                        msg: "matching address not found through geocode service"
+                                        msg: "matching address not found through placeGeocode service"
                                     };
                                     parsedMessage.messageType = "error";
                                     parsedMessage.messageCode = 0;
-                                    parsedMessage.message = "matching address not found through geocode service";
+                                    parsedMessage.message = "matching address not found through placeGeocode service";
                                     reply(parsedMessage);
                                 }
 
@@ -220,21 +210,18 @@ module.exports = {
                     }
                     break;
                 case "C":
-                    parsedMessage.messageType = "show_map";
+                    parsedMessage.messageType = "greetings";
                     parsedMessage.messageCode = 4;
-                    parsedMessage.message = "dummy map data";
-                    parsedMessage.data = {
-                        msg: "map data"
-                    }
+                    parsedMessage.message = "greetings template";
                     reply(parsedMessage);
                     break;
                 default:
                     parsedMessage.messageType = "error";
                     parsedMessage.messageCode = 0;
                     parsedMessage.error = {
-                        msg: answer
+                        msg: "no template found"
                     }
-                    parsedMessage.message = answer;
+                    parsedMessage.message = "no template found";
                     reply(parsedMessage);
             }
 

@@ -54,12 +54,12 @@ let userServiceHandler = {
         });
     },
 
-    geocode: function (address, cb) {
+    placeGeocode: function (address, cb) {
         request({
-            url: settings.userService + "/geocode",
+            url: settings.userService + "/placeGeocode",
             method: 'GET',
             qs: {
-                address: address
+                address: 'citibike ' + address
             }
         }, function (error, response, body) {
             if (error) log.error("Address validation service failed -  " + error);
