@@ -126,7 +126,7 @@ module.exports = {
 
                     } else { //TEMPLATE A BUT NO * OR SEARCH KEYWORD FOUND 
                         aiml.findAnswerInLoadedAIMLFiles("ASK FOR ADDRESS", function (answer, wildCardArray, input) {
-                            parsedMessage.messageType = "Asking_address";
+                            parsedMessage.messageType = "generic_answer";
                             parsedMessage.messageCode = 5;
                             parsedMessage.message = answer;
                             reply(parsedMessage);
@@ -217,13 +217,24 @@ module.exports = {
                     reply(parsedMessage);
                     break;
                 default:
-                    parsedMessage.messageType = "error";
-                    parsedMessage.messageCode = 0;
-                    parsedMessage.error = {
-                        msg: "no template found"
+
+
+                    if (null != answer && "" === answer) {
+                        parsedMessage.messageType = "generic_answer";
+                        parsedMessage.messageCode = 5;
+                        parsedMessage.message = answer;
+                        reply(parsedMessage);
+                    } else {
+                        parsedMessage.messageType = "error";
+                        parsedMessage.messageCode = 0;
+                        parsedMessage.error = {
+                            msg: "no template found"
+                        }
+                        parsedMessage.message = "no template found";
+                        reply(parsedMessage);
                     }
-                    parsedMessage.message = "no template found";
-                    reply(parsedMessage);
+
+                    break;
             }
 
 

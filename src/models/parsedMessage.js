@@ -7,7 +7,7 @@
  * 2 = ASKING FOR ADDRESS
  * 3 = ADDRESS SAVED
  * 4 = GREETINGS 
- * 5 = ASKING FOR ADDRESS FOR SEARCH
+ * 5 = generic answer from aiml
  * 
  */
 let ParsedMessage = function (o) {
