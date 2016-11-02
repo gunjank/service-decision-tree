@@ -49,6 +49,14 @@
     <category><pattern>SEND ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>GIVE ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>ARE THERE ANY NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>I NEED A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE CLOSEST PLACE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE CLOSEST BIKE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE CAN I FIND THE CLOSEST BIKE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE CAN I FIND THE CLOSEST STATION*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>CAN YOU GIVE ME DIRECTIONS TO A BIKE STATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>IS THERE A BIKE STATION NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE BIKE STATION*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
 
 
 	 
