@@ -57,6 +57,13 @@
  <category><pattern>CAN YOU GIVE ME DIRECTIONS TO A BIKE STATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>IS THERE A BIKE STATION NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>WHERE IS THE BIKE STATION*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKE*</pattern><template>Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKES*</pattern><template>Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE ARE THE BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKES CLOSE TO ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>SHOW ME BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+
+	
 
 
 	 
