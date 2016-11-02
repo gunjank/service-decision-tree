@@ -10,10 +10,14 @@
     <category><pattern>SHOW ME EMOJI NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME 🚲 NEAR *</pattern><template>A</template></category>
     <category><pattern>🚲 NEAR *</pattern><template>A</template></category>
-    <category><pattern>🚲 *</pattern><template>A</template></category>
-     <category><pattern>SHOW ME 🚴🏻‍♀️ *</pattern><template>A</template></category>
-     <category><pattern>SHOW ME 🚴 *</pattern><template>A</template></category>
+    <category><pattern>🚲 *</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+     <category><pattern>SHOW ME 🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+     <category><pattern>SHOW ME 🚴</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>🚴</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
 
+	
+	
     <category><pattern>SHOW ME CITIBIKES NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME DOCKS NEAR *</pattern><template>A</template></category>
     <category><pattern>SHOW ME STATIONS NEAR *</pattern><template>A</template></category>
