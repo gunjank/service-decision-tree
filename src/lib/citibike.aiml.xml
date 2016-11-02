@@ -19,6 +19,7 @@
     <category><pattern>WHERE IS THE CLOSEST BIKE NEAR *</pattern><template>A</template></category>
     <category><pattern>WHAT BIKES ARE NEAR *</pattern><template>A</template></category>
     
+    <category><pattern>DO I HAVE TO WEAR A HELMET</pattern><template>abcee</template></category>
 
 
     
