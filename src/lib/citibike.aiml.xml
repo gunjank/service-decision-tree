@@ -26,8 +26,29 @@
 Within 24 hours of the incident, you must also notify Citi Bike of the facts of the crash by calling Customer Service at 1-855-BIKE-311 (245-3311) and speaking with a representative. 
 </template></category>
     <category><pattern>CAN'T FIND A BIKE</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
- <category><pattern>I LOST SOMETHING</pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311). </template></category>	
- <category><pattern>I LOST SOMETHING ON A CITI BIKE </pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311). </template></category>	
+ <category><pattern>I LOST SOMETHING</pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>	
+ <category><pattern>I LOST SOMETHING ON A CITI BIKE</pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>	
+ <category><pattern>I LOST SOMETHING ON A BIKE </pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>
+ <category><pattern>MY BIKE IS BROKEN</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>MY BIKE DOESN'T WORK</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>I HAVE A FLAT TIRE</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>I FOUND AN ABANDONED BIKE</pattern><template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template></category>
+ <category><pattern>SOMEONE LEFT THEIR BIKE</pattern><template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template></category>
+ <category><pattern>I LOST MY BIKE KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 
+ <category><pattern>I CAN'T FIND MY BIKE KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>SOMEONE STOLE MY BIKE KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>MY BIKE KEY WAS STOLEN</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>WHERE ARE THE BIKE LANES IN NYC</pattern><template>There are many bike lanes throughout Manhattan, Brooklyn, Queens and Jersey City. When you map out a ride using the Citi Bike mobile app, we'll show you a route using bike lanes whenever possible. You can also use Google Maps to find bike routes using bike lanes.</template></category>  	
+	 
+	 
+	 
+	 
+	 
+	 
+	 
+If you notice a problem right away and re-dock your bike within 5 minutes at the same station, you can take out a new bike immediately without having to wait 2 minutes.
+</template></category>	
+	
 
 
     
