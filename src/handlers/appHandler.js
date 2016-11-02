@@ -219,7 +219,7 @@ module.exports = {
                 default:
 
 
-                    if (null != answer && "" === answer) {
+                    if (answer != null && answer != "") {
                         parsedMessage.messageType = "generic_answer";
                         parsedMessage.messageCode = 5;
                         parsedMessage.message = answer;
