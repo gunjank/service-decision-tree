@@ -4,6 +4,7 @@ let Message = require('../models/message');
 let ParsedMessage = require('../models/parsedMessage');
 let aiml = require('../lib/aiml');
 const userServiceHandler = require('./userServiceHandler');
+const googleApiServiceHandler = require('./googleApiServiceHandler');
 const citibikeServiceHandler = require('./citibikeServiceHandler');
 const Address = require('../models/address');
 const Response = require('../models/response');
@@ -24,7 +25,7 @@ module.exports = {
                         if (addressTypeOrStr.split(" ").length > 1) { // e.g show me bike near 135 river drive  
                             //call google api and get address text and lat long
                             const payload = addressTypeOrStr;
-                            userServiceHandler.placeGeocode(payload, function (result, error) {
+                            googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                                 if (error) {
                                     log.info("getUserByAddressType" + error);
                                     parsedMessage.error = error;
@@ -137,7 +138,7 @@ module.exports = {
                     //reply("case B");
                     if (wildCardArray.length > 1) {
                         let payload = wildCardArray[1];
-                        userServiceHandler.placeGeocode(payload, function (result, error) {
+                        googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                             if (error) {
                                 log.info("getUserByAddressType" + error);
                                 parsedMessage.error = error;

@@ -9,10 +9,27 @@ let getUserService = function () {
     }
 }
 
+let getGoogleApiService = function () {
+    if (process.env.NODE_ENV === 'PRODUCTION') {
+        return `https://service-google-api.cfapps.io/v1/googleApi`;
+    } else {
+        return `http://localhost:3004/v1/googleApi`;
+    }
+}
+
+let getCitiBikeService = function () {
+    if (process.env.NODE_ENV === 'PRODUCTION') {
+        return `https://service-citibike.cfapps.io/v1`;
+    } else {
+        return `http://localhost:3001/v1/googleApi/v1`;
+    }
+}
+
 
 let settings = {
     userService: getUserService(),
-    citiBikeService: `http://service-citibike.cfapps.io/v1`,
+    googleApiService: getGoogleApiService(),
+    citiBikeService: getCitiBikeService(),
     noAddressFound: `I was unable to find that address. Please try a different address!`,
     port: process.env.PORT || '3002'
 }

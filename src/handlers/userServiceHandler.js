@@ -52,21 +52,8 @@ let userServiceHandler = {
             if (response) log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
             cb(response, error);
         });
-    },
-
-    placeGeocode: function (address, cb) {
-        request({
-            url: settings.userService + "/placeGeocode",
-            method: 'GET',
-            qs: {
-                address: 'citibike ' + address
-            }
-        }, function (error, response, body) {
-            if (error) log.error("Address validation service failed -  " + error);
-            if (response) log.info("address validation successful and response status message is - " + response.statusMessage);
-            cb(response, error);
-        });
     }
+
 
 
 
