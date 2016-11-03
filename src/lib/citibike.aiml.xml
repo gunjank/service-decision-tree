@@ -83,14 +83,6 @@
  <category><pattern>WHERE ARE THE BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>BIKES CLOSE TO ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>SHOW ME BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
-
-	
-
-
-	 
-
-	 
-	 
 	 
 	
 
@@ -108,10 +100,10 @@
   <category><pattern>FORMAT : PLEASE PROVIDE YOUR <set addressType='address'>*</set> ADDRESS</pattern><template>Please provide your <get addressType='address'/> address. E.g. Save my <get addressType='address'/> address : street name city state zip</template></category>
 	 <category><pattern>ASK FOR ADDRESS</pattern><template>Please provide your address.</template></category>
 
-<category><pattern>ERROR MESSAGE</pattern><template>Sorry, I did not understand your question. You can send me things like: 
--	Bikes at work
--	Bikes at home
--	Bikes near {address or landmark}
+<category><pattern>ERROR MESSAGE</pattern><template>Sorry, I did not understand your question. You can send me things like:\r\n
+-	Bikes at work\r\n
+-	Bikes at home\r\n
+-	Bikes near {address or landmark}\r\n
 If you need further information or instructions, please go to citibikenyc.com
 </template></category>
 

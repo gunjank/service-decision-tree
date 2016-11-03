@@ -10,7 +10,7 @@ var callback = function (answer, wildCardArray, input) {
     console.log(answer + ' | ' + wildCardArray + ' | ' + input);
 };
 
-//aimlInterpreter.findAnswerInLoadedAIMLFiles("IS IT SAFE TO RIDE BIKES IN THE CITY  as asdfa dasfasd", callback);
+//aimlInterpreter.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR 35 RIVER DRIVE ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SAVE MY home1 ADDRESS : asdfas jer ', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', callback);
