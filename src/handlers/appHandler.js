@@ -217,8 +217,6 @@ module.exports = {
                     reply(parsedMessage);
                     break;
                 default:
-
-
                     if (answer != null && answer != "") {
                         parsedMessage.messageType = "generic_answer";
                         parsedMessage.messageCode = 5;
@@ -233,11 +231,8 @@ module.exports = {
                         parsedMessage.message = "no template found";
                         reply(parsedMessage);
                     }
-
                     break;
             }
-
-
         });
     }
 }

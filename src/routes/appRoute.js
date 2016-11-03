@@ -5,7 +5,6 @@ let appHandler = require('../handlers/appHandler');
 
 module.exports = function (server, options) {
 
-
     server.route({
         method: 'post',
         path: '/v1/message',

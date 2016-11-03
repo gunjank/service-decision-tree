@@ -53,10 +53,5 @@ let userServiceHandler = {
             cb(response, error);
         });
     }
-
-
-
-
-
 }
 module.exports = userServiceHandler;

@@ -20,9 +20,5 @@ let googleApiServiceHandler = {
             cb(response, error);
         });
     }
-
-
-
-
 }
 module.exports = googleApiServiceHandler;

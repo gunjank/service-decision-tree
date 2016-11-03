@@ -15,7 +15,6 @@ let citibikeServiceHandler = {
             if (response) log.info("Got near by station response from citibike api and response status message is - " + response.statusMessage);
             cb(response, error);
         });
-    },
-
+    }
 }
 module.exports = citibikeServiceHandler;
