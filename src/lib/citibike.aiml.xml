@@ -4,12 +4,18 @@
     
     <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
     <category><pattern>SEND ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SEND ME CITIBIKES NEAR *</pattern><template>A</template></category>
+	
  <category><pattern>MSG ME BIKES NEAR *</pattern><template>A</template></category>
 	<category><pattern>MESSAGE ME BIKES NEAR *</pattern><template>A</template></category>
+		<category><pattern>CITIBIKES AT *</pattern><template>A</template></category>
 	<category><pattern>BIKES AT *</pattern><template>A</template></category>
 	<category><pattern>BIKES IN *</pattern><template>A</template></category>
 	<category><pattern>BIKES CLOSE TO *</pattern><template>A</template></category>
+	<category><pattern>CITIBIKES CLOSE TO *</pattern><template>A</template></category>
 	<category><pattern>BIKES *</pattern><template>A</template></category>
+	<category><pattern>CITIBIKES *</pattern><template>A</template></category>
+
 <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
     <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
      <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
