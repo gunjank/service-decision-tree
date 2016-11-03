@@ -177,6 +177,8 @@ module.exports = {
 
 let commonErrorHelp = function (reply) {
     aiml.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", function (answer, wildCardArray, input) {
+
+
         messageType5(reply, answer);
     });
 }
