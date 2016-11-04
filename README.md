@@ -1,5 +1,5 @@
-# Service-fbbot
-Facebook Webhook : This microservice listens all events from Facebook and respond back as and when needed. It also have Facebook messenger template wrappers.
+# Service-Decision Tree
+Message Parser and decision maker  : This microservice prses all messages and respond back required messages by utilizing AIML and calling various other microservices.
 
 
 
@@ -11,5 +11,5 @@ npm install from root folder path
 #run
 npm start 
 #see swagger  api
-Application URL/documentation
-http://localhost:3000/documentation
+Application URL/documentation - Look on Settings.js file for local port number cloud url/port settings. 
+http://localhost:3002/documentation
