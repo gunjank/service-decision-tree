@@ -177,8 +177,8 @@ module.exports = {
 
 let commonErrorHelp = function (reply) {
     aiml.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", function (answer, wildCardArray, input) {
-
-
+        let re = new RegExp('@@@', 'gi');
+        answer = answer.replace(re, "\r\n");
         messageType5(reply, answer);
     });
 }
