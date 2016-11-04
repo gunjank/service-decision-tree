@@ -23,7 +23,7 @@ module.exports = {
                                 let addressTypeOrStr = wildCardArray[0];
                                 if (addressTypeOrStr.split(" ").length > 1) { // e.g show me bike near 135 river drive  
                                     //call google api and get address text and lat long
-                                    const payload = addressTypeOrStr;
+                                    const payload = 'citibike ' + addressTypeOrStr;
                                     googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                                         if (error) {
                                             log.info("getUserByAddressType - erver error - getting address" + error);

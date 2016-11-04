@@ -12,7 +12,7 @@ let googleApiServiceHandler = {
             url: settings.googleApiService + "/placeGeocode",
             method: 'GET',
             qs: {
-                address: 'citibike ' + address
+                address: address
             }
         }, function (error, response, body) {
             if (error) log.error("Address validation service failed -  " + error);
