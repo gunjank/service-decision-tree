@@ -9,8 +9,9 @@ clone code by using : `git clone` <git clone path>
 From root folder path : `npm install` 
 
 #run
-npm start 
+`npm start`
 
-#see swagger  api
-Application URL/documentation - Look on Settings.js file for local port number cloud url/port settings. 
-http://localhost:3002/documentation
+#Swagger Rest api
+Application URL/documentation - Look on `Settings.js` file for local port number cloud url/port settings. 
+
+`http://localhost:3002/documentation`

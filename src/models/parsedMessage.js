@@ -8,6 +8,7 @@
  * 3 = ADDRESS SAVED
  * 4 = GREETINGS 
  * 5 = generic answer from aiml
+ * 6 = video message 
  * 
  */
 let ParsedMessage = function (o) {

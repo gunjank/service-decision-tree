@@ -155,6 +155,9 @@ module.exports = {
                                 commonErrorHelp(reply);
                             }
                             break;
+                        case "E":
+
+                            break;
                         default:
                             if (answer != null && answer != "") {
                                 messageType5(reply, answer);
@@ -180,6 +183,12 @@ let messageType5 = function (reply, msg) {
     parsedMessage.messageType = "generic_answer";
     parsedMessage.messageCode = 5;
     parsedMessage.message = msg;
+    reply(parsedMessage);
+}
+let messageType6 = function (reply, msg) {
+    let parsedMessage = new ParsedMessage({});
+    parsedMessage.messageType = "video";
+    parsedMessage.messageCode = 6;
     reply(parsedMessage);
 }
 let nearByAddressService = function (reply, nearByAddPayload) {
