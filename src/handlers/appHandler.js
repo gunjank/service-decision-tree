@@ -156,7 +156,7 @@ module.exports = {
                             }
                             break;
                         case "E":
-
+                            messageType6(reply, answer)
                             break;
                         default:
                             if (answer != null && answer != "") {
@@ -189,6 +189,7 @@ let messageType6 = function (reply, msg) {
     let parsedMessage = new ParsedMessage({});
     parsedMessage.messageType = "video";
     parsedMessage.messageCode = 6;
+    parsedMessage.message = msg;
     reply(parsedMessage);
 }
 let nearByAddressService = function (reply, nearByAddPayload) {
