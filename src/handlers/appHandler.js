@@ -26,7 +26,7 @@ module.exports = {
                                     const payload = 'citibike ' + addressTypeOrStr;
                                     googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                                         if (error) {
-                                            log.info("getUserByAddressType - erver error - getting address" + error);
+                                            log.info("placeGeocode - erver error - getting address" + error);
                                             commonErrorHelp(reply);
                                         } else {
                                             //asdf
@@ -38,18 +38,7 @@ module.exports = {
                                                     lon: location.lng,
                                                     lat: location.lat
                                                 };
-                                                citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
-                                                    if (error) {
-                                                        log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);
-                                                        commonErrorHelp(reply);
-                                                    } else {
-                                                        parsedMessage.messageType = "nearest_station_list";
-                                                        parsedMessage.messageCode = 1;
-                                                        parsedMessage.message = "nearest stations";
-                                                        parsedMessage.data = result.body
-                                                        reply(parsedMessage);
-                                                    }
-                                                }); //end of addressNearBy
+                                                nearByAddressService(reply, nearByAddPayload);
                                             } //else of placeGeocode response validation
                                             else {
                                                 log.info("status code - " + response.statusCode + " response.data.results either null or 0 length array for placeGeocode service ");
@@ -57,37 +46,26 @@ module.exports = {
                                             } //end of placeGeocode response validation
                                         } //end of geo code success handler 
                                     });
-                                    //call citibikeServiceHandler.addressNearBy
-                                } else {
+                                    //end of call citibikeServiceHandler.addressNearBy
+                                } else { //wildCardArray found only one word and assume it is work or home or similar address 
                                     userServiceHandler.getUserByAddressType(message.userId, addressTypeOrStr, function (result, error) {
                                         if (error) {
                                             log.info("getUserByAddressType - Server error - getting address" + error);
                                             commonErrorHelp(reply);
                                         } else {
                                             let response = new Response(JSON.parse(result.body));
-                                            //user may have multiple! home address or no home address or one home 
-                                            //one home
-                                            if (response.statusCode === 1) {
+                                            //user will have only one address for each type or no address for given type                                             
+                                            //log.info("user address by type response " + JSON.stringify(response));
+                                            if (response.statusCode === 1) { //status code means user address found
                                                 let address = new Address(response.data[0]);
                                                 //call user service and get nearest stations
                                                 let nearByAddPayload = {
                                                     lon: address.lon,
                                                     lat: address.lat
                                                 };
-                                                citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
-                                                    if (error) {
-                                                        log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);
-                                                        commonErrorHelp(reply);
-                                                    } else {
-                                                        parsedMessage.messageType = "nearest_station_list";
-                                                        parsedMessage.messageCode = 1;
-                                                        parsedMessage.message = "nearest stations";
-                                                        parsedMessage.data = result.body
-                                                        reply(parsedMessage);
-                                                    }
-                                                });
+                                                nearByAddressService(reply, nearByAddPayload);
 
-                                            } else { // no home
+                                            } else { // no matching address found 
                                                 aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + addressTypeOrStr + " ADDRESS", function (answer, wildCardArray, input) {
                                                     parsedMessage.messageType = "need_address_to_save";
                                                     parsedMessage.messageCode = 2;
@@ -95,9 +73,9 @@ module.exports = {
                                                     reply(parsedMessage);
                                                 });
                                             }
-                                        }
-                                    });
-                                } //if and else both covered
+                                        } //end of else for user address by type success
+                                    }); //end of user address by type service call
+                                } //if and else both covered for template A 
 
                             } else { //TEMPLATE A BUT NO * OR SEARCH KEYWORD FOUND 
                                 aiml.findAnswerInLoadedAIMLFiles("ASK FOR ADDRESS", function (answer, wildCardArray, input) {
@@ -112,7 +90,7 @@ module.exports = {
                                 let payload = wildCardArray[1];
                                 googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                                     if (error) {
-                                        log.info("getUserByAddressType - Server error - getting address" + error);
+                                        log.info("placeGeocode - Server error - getting address" + error);
                                         commonErrorHelp(reply);
                                     } else {
                                         let response = new Response(JSON.parse(result.body));
@@ -170,18 +148,7 @@ module.exports = {
                                     lat: wildCardArray[0].replace(re, "."),
                                     lon: wildCardArray[1].replace(re, ".")
                                 };
-                                citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
-                                    if (error) {
-                                        log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);
-                                        commonErrorHelp(reply);
-                                    } else {
-                                        parsedMessage.messageType = "nearest_station_list";
-                                        parsedMessage.messageCode = 1;
-                                        parsedMessage.message = "nearest stations";
-                                        parsedMessage.data = result.body
-                                        reply(parsedMessage);
-                                    }
-                                }); //end of addressNearBy
+                                nearByAddressService(reply, nearByAddPayload);
 
                             } else {
                                 log.info("template D but wildCardArray length is less than 2 ")
@@ -214,4 +181,19 @@ let messageType5 = function (reply, msg) {
     parsedMessage.messageCode = 5;
     parsedMessage.message = msg;
     reply(parsedMessage);
+}
+let nearByAddressService = function (reply, nearByAddPayload) {
+    citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
+        if (error) {
+            log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);
+            commonErrorHelp(reply);
+        } else {
+            let parsedMessage = new ParsedMessage({});
+            parsedMessage.messageType = "nearest_station_list";
+            parsedMessage.messageCode = 1;
+            parsedMessage.message = "nearest stations";
+            parsedMessage.data = result.body
+            reply(parsedMessage);
+        }
+    }); //end of addressNearBy
 }

@@ -1,392 +1,116 @@
 <?xml version="1.0" encoding="ISO-8859-1"?>
 <aiml>
-    <category>
-        <pattern>SHOW ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SEND ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SEND ME CITIBIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>MSG ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>MESSAGE ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>CITIBIKES AT *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES AT *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES IN *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES CLOSE TO *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>CITIBIKES CLOSE TO *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>CITIBIKES *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME BIKE NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME EMOJI NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME 🚲 NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>🚲 NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME CITIBIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME DOCKS NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME STATIONS NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME STATION NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>SHOW ME BIKES NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE CLOSEST BIKE NEAR *</pattern>
-        <template>A</template>
-    </category>
-    <category>
-        <pattern>WHAT BIKES ARE NEAR *</pattern>
-        <template>A</template>
-    </category>
+
+    
+    <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SEND ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SEND ME CITIBIKES NEAR *</pattern><template>A</template></category>
+ <category><pattern>MSG ME BIKES NEAR *</pattern><template>A</template></category>
+	<category><pattern>MESSAGE ME BIKES NEAR *</pattern><template>A</template></category>
+		<category><pattern>CITIBIKES AT *</pattern><template>A</template></category>
+	<category><pattern>BIKES AT *</pattern><template>A</template></category>
+	<category><pattern>BIKES IN *</pattern><template>A</template></category>
+	<category><pattern>BIKES CLOSE TO *</pattern><template>A</template></category>
+	<category><pattern>CITIBIKES CLOSE TO *</pattern><template>A</template></category>
+	<category><pattern>BIKES *</pattern><template>A</template></category>
+	<category><pattern>CITIBIKES *</pattern><template>A</template></category>
+<category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
+     <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME BIKE NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME EMOJI NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME 🚲 NEAR *</pattern><template>A</template></category>
+    <category><pattern>🚲 NEAR *</pattern><template>A</template></category>
+
+
+	
+	
+    <category><pattern>SHOW ME CITIBIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME DOCKS NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME STATIONS NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME STATION NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>WHERE IS THE CLOSEST BIKE NEAR *</pattern><template>A</template></category>
+    <category><pattern>WHAT BIKES ARE NEAR *</pattern><template>A</template></category>
+    
+
+
+
     <!--Template B - save my address  -->
-    <category>
-        <pattern>SAVE MY * ADDRESS :*</pattern>
-        <template>B</template>
-    </category>
-    <category>
-        <pattern>SAVE MY * ADDRESS:*</pattern>
-        <template>B</template>
-    </category>
-    <!--Template C - Greetings message  -->
-    <category>
-        <pattern>HELLO</pattern>
-        <template>C</template>
-    </category>
-    <category>
-        <pattern>HI</pattern>
-        <template>C</template>
-    </category>
-    <category>
-        <pattern>HEY</pattern>
-        <template>C</template>
-    </category>
-    <!--Template D - location search by given lat and lon e.g LATLONG  LAT 23DOT343434 LONG 43DOT3434 -->
-    <category>
-        <pattern>LATLONG LAT * LONG * </pattern>
-        <template>D</template>
-    </category>
+    <!--<category><pattern>SAVE MY * ADDRESS *</pattern><template>B</template></category>-->
+    <category><pattern>SAVE MY * ADDRESS*</pattern><template>B</template></category>
+    <!--<category><pattern>SAVE MY * ADDRESS *</pattern><template>B</template></category>-->
+<!--Template C - Greetings message  -->
+    <category><pattern>HELLO</pattern><template>C</template></category>
+    <category><pattern>HI</pattern><template>C</template></category>
+    <category><pattern>HEY</pattern><template>C</template></category> 
+<!--Template D - location search by given lat and lon e.g LATLONG  LAT 23DOT343434 LONG 43DOT3434 -->
+    <category><pattern>LATLONG LAT * LONG * </pattern><template>D</template></category>
     <!--Template generice answers -->
-    <category>
-        <pattern>🚲 *</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>SHOW ME 🚴🏻‍♀️</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>SHOW ME 🚴</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>🚴🏻‍♀️</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>🚴</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>DO I HAVE TO WEAR A HELMET*</pattern>
-        <template>Helmets have been proven to greatly reduce the risk of head injury in an accident. In New Jersey, it is the law that
-            cyclists under the age of 17 wear a helmet while riding. In New York, cyclists over the age of 13 are not required
-            to wear a bike helmet, but it is always recommended for riders of all ages. </template>
-    </category>
-    <category>
-        <pattern>DO I NEED A HELMET*</pattern>
-        <template>Helmets have been proven to greatly reduce the risk of head injury in an accident. In New Jersey, it is the law that
-            cyclists under the age of 17 wear a helmet while riding. In New York, cyclists over the age of 13 are not required
-            to wear a bike helmet, but it is always recommended for riders of all ages. </template>
-    </category>
-    <category>
-        <pattern>CAN'T FIND A BIKE</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>I LOST SOMETHING</pattern>
-        <template>Sorry to hear that. We’ll try to help. To report a lost or found item, please call Customer Service at 1-855-BIKE-311
-            (245-3311).</template>
-    </category>
-    <category>
-        <pattern>I LOST SOMETHING ON A CITI BIKE</pattern>
-        <template>Sorry to hear that. We’ll try to help. To report a lost or found item, please call Customer Service at 1-855-BIKE-311
-            (245-3311).</template>
-    </category>
-    <category>
-        <pattern>I LOST SOMETHING ON A BIKE </pattern>
-        <template>Sorry to hear that. We’ll try to help. To report a lost or found item, please call Customer Service at 1-855-BIKE-311
-            (245-3311).</template>
-    </category>
-    <category>
-        <pattern>MY BIKE IS BROKEN</pattern>
-        <template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and
-            press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else
-            can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike,
-            so members can see from afar that it’s broken.</template>
-    </category>
-    <category>
-        <pattern>MY BIKE DOESN'T WORK</pattern>
-        <template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and
-            press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else
-            can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike,
-            so members can see from afar that it’s broken.</template>
-    </category>
-    <category>
-        <pattern>I HAVE A FLAT TIRE</pattern>
-        <template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and
-            press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else
-            can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike,
-            so members can see from afar that it’s broken.</template>
-    </category>
-    <category>
-        <pattern>I FOUND AN ABANDONED BIKE</pattern>
-        <template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template>
-    </category>
-    <category>
-        <pattern>SOMEONE LEFT THEIR BIKE</pattern>
-        <template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template>
-    </category>
-    <category>
-        <pattern>I LOST MY KEY</pattern>
-        <template>Sorry to hear that. We’ll try to help. Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible
-            to deactivate your bike key and prevent fraudulent use.</template>
-    </category>
-    <category>
-        <pattern>I LOST MY BIKE KEY</pattern>
-        <template>Sorry to hear that. We’ll try to help. Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible
-            to deactivate your bike key and prevent fraudulent use.</template>
-    </category>
-    <category>
-        <pattern>I CAN'T FIND MY BIKE KEY*</pattern>
-        <template>Sorry to hear that. We’ll try to help. Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible
-            to deactivate your bike key and prevent fraudulent use.</template>
-    </category>
-    <category>
-        <pattern>SOMEONE STOLE MY BIKE KEY*</pattern>
-        <template>Sorry to hear that. We’ll try to help. Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible
-            to deactivate your bike key and prevent fraudulent use.</template>
-    </category>
-    <category>
-        <pattern>MY BIKE KEY WAS STOLEN*</pattern>
-        <template>Sorry to hear that. We’ll try to help. Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible
-            to deactivate your bike key and prevent fraudulent use.</template>
-    </category>
-    <category>
-        <pattern>WHERE ARE THE BIKE LANES IN NYC*</pattern>
-        <template>There are many bike lanes throughout Manhattan, Brooklyn, Queens and Jersey City. When you map out a ride using the
-            Citi Bike mobile app, we'll show you a route using bike lanes whenever possible. You can also use Google Maps
-            to find bike routes using bike lanes.</template>
-    </category>
-    <category>
-        <pattern>IS IT SAFE TO RIDE BIKES IN THE CITY*</pattern>
-        <template>While there can always be risks with any mode of transportation, bike share has proven to be relatively safe. Of
-            course, it is always recommended that riders wear helmets to greatly reduce the risk of head injury should an
-            accident occur.</template>
-    </category>
-    <category>
-        <pattern>CAN YOU TELL ME WHERE I CAN GET A BIKE*</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I FIND A BIKE*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I GET ONE*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE CLOSEST STATION*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE CLOSEST BIKE*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I FIND THE CLOSEST BIKE*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I FIND THE CLOSEST PICK UP PLACE*</pattern>
-        <template>Ok, I'm on it! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>HOW CLOSE AM I TO A BIKE STATION*</pattern>
-        <template>I can help! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I GET A BIKE*</pattern>
-        <template>I can show you! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>SEND ME THE CLOSEST LOCATION*</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>GIVE ME THE CLOSEST LOCATION*</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>ARE THERE ANY NEAR ME*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>I NEED A BIKE*</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE CLOSEST PLACE*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE CLOSEST BIKE*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I FIND THE CLOSEST BIKE*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE CAN I FIND THE CLOSEST STATION*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>CAN YOU GIVE ME DIRECTIONS TO A BIKE STATION*</pattern>
-        <template>Sure! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>IS THERE A BIKE STATION NEAR ME*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE IS THE BIKE STATION*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>BIKE*</pattern>
-        <template>Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>BIKES*</pattern>
-        <template>Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>WHERE ARE THE BIKES*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>BIKES CLOSE TO ME*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>SHOW ME BIKES*</pattern>
-        <template>Let me check! Send me the address and I’ll locate the nearest ones.</template>
-    </category>
-    <category>
-        <pattern>FORMAT : PLEASE PROVIDE YOUR
-            <set addressType='address'>*</set> ADDRESS</pattern>
-        <template>Please provide your
-            <get addressType='address' /> address. E.g. Save my
-            <get addressType='address' /> address : street name city state zip</template>
-    </category>
-    <category>
-        <pattern>ASK FOR ADDRESS</pattern>
-        <template>Please provide your address.</template>
-    </category>
-    <!--@@@ means line break-->
-    <category>
-        <pattern>ERROR MESSAGE</pattern>
-        <template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes
-            near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
-        </template>
-    </category>
-    <category>
-        <pattern>HELP</pattern>
-        <template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes
-            near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
-        </template>
-    </category>
-    <category>
-        <pattern>I DON'T KNOW WHAT TO SAY</pattern>
-        <template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes
-            near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
-        </template>
-    </category>
-    <category>
-        <pattern>WHAT CAN I SAY</pattern>
-        <template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes
-            near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
-        </template>
-    </category>
-    <category>
-        <pattern>*</pattern>
-        <template>A</template>
-    </category>
+    <category><pattern>🚲 *</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+     <category><pattern>SHOW ME 🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+     <category><pattern>SHOW ME 🚴</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>🚴</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    
+<category><pattern>DO I HAVE TO WEAR A HELMET*</pattern><template>Helmets have been proven to greatly reduce the risk of head injury in an accident. In New Jersey, it is the law that cyclists under the age of 17 wear a helmet while riding. In New York, cyclists over the age of 13 are not required to wear a bike helmet, but it is always recommended for riders of all ages. </template></category>
+    <category><pattern>DO I NEED A HELMET*</pattern><template>Helmets have been proven to greatly reduce the risk of head injury in an accident. In New Jersey, it is the law that cyclists under the age of 17 wear a helmet while riding. In New York, cyclists over the age of 13 are not required to wear a bike helmet, but it is always recommended for riders of all ages. </template></category>
+    <category><pattern>CAN'T FIND A BIKE</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>I LOST SOMETHING</pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>	
+ <category><pattern>I LOST SOMETHING ON A CITI BIKE</pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>	
+ <category><pattern>I LOST SOMETHING ON A BIKE </pattern><template>Sorry to hear that. We’ll try to help.  To report a lost or found item, please call Customer Service at 1-855-BIKE-311 (245-3311).</template></category>
+ <category><pattern>MY BIKE IS BROKEN</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>MY BIKE DOESN'T WORK</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>I HAVE A FLAT TIRE</pattern><template>Okay, let’s try to take care of it. If there’s a problem with your bike, please dock it at the nearest station and press the button on the dock with a wrench symbol on it. This will turn the light on the dock red so no one else can use the bike before our technicians can fix it. You can also turn the seat backward on a red-lighted bike, so members can see from afar that it’s broken.</template></category>
+ <category><pattern>I FOUND AN ABANDONED BIKE</pattern><template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template></category>
+ <category><pattern>SOMEONE LEFT THEIR BIKE</pattern><template>Ok, we can help. If you find an abandoned bike, please call Customer Service right away at 1-855-BIKE-311 (245-3311).</template></category>
+  <category><pattern>I LOST MY KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 
+<category><pattern>I LOST MY BIKE KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 
+ <category><pattern>I CAN'T FIND MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>SOMEONE STOLE MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>MY BIKE KEY WAS STOLEN*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>WHERE ARE THE BIKE LANES IN NYC*</pattern><template>There are many bike lanes throughout Manhattan, Brooklyn, Queens and Jersey City. When you map out a ride using the Citi Bike mobile app, we'll show you a route using bike lanes whenever possible. You can also use Google Maps to find bike routes using bike lanes.</template></category>  	
+ <category><pattern>IS IT SAFE TO RIDE BIKES IN THE CITY*</pattern><template>While there can always be risks with any mode of transportation, bike share has proven to be relatively safe. Of course, it is always recommended that riders wear helmets to greatly reduce the risk of head injury should an accident occur.</template></category>  		
+    <category><pattern>CAN YOU TELL ME WHERE I CAN GET A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE CAN I FIND A BIKE*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE CAN I GET ONE*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE IS THE CLOSEST STATION*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE IS THE CLOSEST BIKE*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE CAN I FIND THE CLOSEST BIKE*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE CAN I FIND THE CLOSEST PICK UP PLACE*</pattern><template>Ok, I'm on it! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>HOW CLOSE AM I TO A BIKE STATION*</pattern><template>I can help! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>WHERE CAN I GET A BIKE*</pattern><template>I can show you! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>SEND ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>GIVE ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>ARE THERE ANY NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>I NEED A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE CLOSEST PLACE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE CLOSEST BIKE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE CAN I FIND THE CLOSEST BIKE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE CAN I FIND THE CLOSEST STATION*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>CAN YOU GIVE ME DIRECTIONS TO A BIKE STATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>IS THERE A BIKE STATION NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE IS THE BIKE STATION*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKE*</pattern><template>Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKES*</pattern><template>Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>WHERE ARE THE BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>BIKES CLOSE TO ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>SHOW ME BIKES*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
+	 
+	
+  <category><pattern>FORMAT : PLEASE PROVIDE YOUR <set addressType='address'>*</set> ADDRESS</pattern><template>Please provide your <get addressType='address'/> address. E.g. Save my <get addressType='address'/> address  street name city state zip</template></category>
+	 <category><pattern>ASK FOR ADDRESS</pattern><template>Please provide your address.</template></category>
+<!--@@@ means line break-->
+<category><pattern>ERROR MESSAGE</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+</template></category>
+<category><pattern>HELP</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+</template></category>
+<category><pattern>I DON'T KNOW WHAT TO SAY</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+</template></category>
+<category><pattern>WHAT CAN I SAY</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+</template></category>
+	
+<category><pattern>*</pattern><template>A</template></category>
+  
+
 </aiml>
