@@ -15,6 +15,7 @@ module.exports = {
         parseMessage: function (request, reply) {
                 let message = request.payload;
                 let parsedMessage = new ParsedMessage({});
+                log.info(message.text);
                 aiml.findAnswerInLoadedAIMLFiles(message.text, function (answer, wildCardArray, input) {
                     switch (answer) {
                         case "A":
@@ -161,6 +162,31 @@ module.exports = {
                             parsedMessage.messageCode = 4;
                             parsedMessage.message = "greetings template";
                             reply(parsedMessage);
+                            break;
+                        case "D":
+                            if (wildCardArray.length > 1) {
+                                let re = new RegExp("DOT");
+                                const nearByAddPayload = {
+                                    lat: wildCardArray[0].replace(re, "."),
+                                    lon: wildCardArray[1].replace(re, ".")
+                                };
+                                citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
+                                    if (error) {
+                                        log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);
+                                        commonErrorHelp(reply);
+                                    } else {
+                                        parsedMessage.messageType = "nearest_station_list";
+                                        parsedMessage.messageCode = 1;
+                                        parsedMessage.message = "nearest stations";
+                                        parsedMessage.data = result.body
+                                        reply(parsedMessage);
+                                    }
+                                }); //end of addressNearBy
+
+                            } else {
+                                log.info("template D but wildCardArray length is less than 2 ")
+                                commonErrorHelp(reply);
+                            }
                             break;
                         default:
                             if (answer != null && answer != "") {

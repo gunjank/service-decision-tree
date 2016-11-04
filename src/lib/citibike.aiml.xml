@@ -93,10 +93,9 @@
 
     <category><pattern>HELLO</pattern><template>C</template></category>
     <category><pattern>HI</pattern><template>C</template></category>
-    <category><pattern>HEY</pattern><template>C</template></category>
-   
- 
-  <category><pattern>TEST MULTIPLE * WILDCARDS *</pattern><template><star index="2" /> <star index="1" /></template></category>
+    <category><pattern>HEY</pattern><template>C</template></category> 
+<!--Template D - location search by given lat and lon e.g LATLONG  LAT 23DOT343434 LONG 43DOT3434 -->
+    <category><pattern>LATLONG LAT * LONG * </pattern><template>D</template></category>
   <category><pattern>FORMAT : PLEASE PROVIDE YOUR <set addressType='address'>*</set> ADDRESS</pattern><template>Please provide your <get addressType='address'/> address. E.g. Save my <get addressType='address'/> address : street name city state zip</template></category>
 	 <category><pattern>ASK FOR ADDRESS</pattern><template>Please provide your address.</template></category>
 <!--@@@ means line break-->
