@@ -69,8 +69,10 @@
   <category><pattern>I LOST MY KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 
 <category><pattern>I LOST MY BIKE KEY</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 
  <category><pattern>I CAN'T FIND MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
- <category><pattern>SOMEONE STOLE MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
- <category><pattern>MY BIKE KEY WAS STOLEN*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+ <category><pattern>CAN'T FIND MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+<category><pattern>SOMEONE STOLE MY BIKE KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+<category><pattern>SOMEONE STOLE MY KEY*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
+<category><pattern>MY BIKE KEY WAS STOLEN*</pattern><template>Sorry to hear that. We’ll try to help.  Please call Customer Service at 1-855-BIKE-311 (245-3311) as soon as possible to deactivate your bike key and prevent fraudulent use.</template></category> 	
  <category><pattern>WHERE ARE THE BIKE LANES IN NYC*</pattern><template>There are many bike lanes throughout Manhattan, Brooklyn, Queens and Jersey City. When you map out a ride using the Citi Bike mobile app, we'll show you a route using bike lanes whenever possible. You can also use Google Maps to find bike routes using bike lanes.</template></category>  	
  <category><pattern>IS IT SAFE TO RIDE BIKES IN THE CITY*</pattern><template>While there can always be risks with any mode of transportation, bike share has proven to be relatively safe. Of course, it is always recommended that riders wear helmets to greatly reduce the risk of head injury should an accident occur.</template></category>  		
     <category><pattern>CAN YOU TELL ME WHERE I CAN GET A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
@@ -84,6 +86,12 @@
     <category><pattern>WHERE CAN I GET A BIKE*</pattern><template>I can show you! Send me the address and I’ll locate the nearest ones.</template></category>
     <category><pattern>SEND ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>GIVE ME THE CLOSEST LOCATION*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+<category><pattern>PLEASE HELP ME FIND A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>FIND BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>FIND ME A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>HELP FIND A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>HELP ME FIND A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+ <category><pattern>HOW CAN I FIND A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>ARE THERE ANY NEAR ME*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>I NEED A BIKE*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
  <category><pattern>WHERE IS THE CLOSEST PLACE*</pattern><template>Let me check! Send me the address and I’ll locate the nearest ones.</template></category>
@@ -105,11 +113,11 @@
 <!--@@@ means line break-->
 <category><pattern>ERROR MESSAGE</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
 </template></category>
-<category><pattern>HELP</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+<category><pattern>HELP</pattern><template>You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
 </template></category>
-<category><pattern>I DON'T KNOW WHAT TO SAY</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+<category><pattern>I DON'T KNOW WHAT TO SAY</pattern><template>You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
 </template></category>
-<category><pattern>WHAT CAN I SAY</pattern><template>Sorry, I did not understand your question. You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
+<category><pattern>WHAT CAN I SAY</pattern><template>You can send me things like:@@@- Bikes at work@@@- Bikes at home@@@- Bikes near {address or landmark}@@@If you need further information or instructions, please go to citibikenyc.com
 </template></category>
 
 <category><pattern>*</pattern><template>A</template></category>
