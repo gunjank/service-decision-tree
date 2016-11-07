@@ -2,36 +2,31 @@
 <aiml>
 
     
-    <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>SEND ME BIKES NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME BIKES NEAR*</pattern><template>A</template></category>   
     <category><pattern>SEND ME CITIBIKES NEAR *</pattern><template>A</template></category>
- <category><pattern>MSG ME BIKES NEAR *</pattern><template>A</template></category>
-	<category><pattern>MESSAGE ME BIKES NEAR *</pattern><template>A</template></category>
-		<category><pattern>CITIBIKES AT *</pattern><template>A</template></category>
-	<category><pattern>BIKES AT *</pattern><template>A</template></category>
-	<category><pattern>BIKES IN *</pattern><template>A</template></category>
-	<category><pattern>BIKES CLOSE TO *</pattern><template>A</template></category>
-	<category><pattern>CITIBIKES CLOSE TO *</pattern><template>A</template></category>
-	<category><pattern>BIKES *</pattern><template>A</template></category>
-	<category><pattern>CITIBIKES *</pattern><template>A</template></category>
-<category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
-     <category><pattern>BIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME BIKE NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME EMOJI NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME 🚲 NEAR *</pattern><template>A</template></category>
-    <category><pattern>🚲 NEAR *</pattern><template>A</template></category>
-
-
+ <category><pattern>MSG ME BIKES NEAR*</pattern><template>A</template></category>
+	<category><pattern>MESSAGE ME BIKES NEAR*</pattern><template>A</template></category>
+		<category><pattern>CITIBIKES AT*</pattern><template>A</template></category>	
+	<category><pattern>CITIBIKES CLOSE TO*</pattern><template>A</template></category>	
+	<category><pattern>CITIBIKES*</pattern><template>A</template></category>
+<category><pattern>SHOW ME BIKES NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME BIKE NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME EMOJI NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME 🚲 NEAR*</pattern><template>A</template></category>
+    <category><pattern>🚲 NEAR*</pattern><template>A</template></category>	
 	
-	
-    <category><pattern>SHOW ME CITIBIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME DOCKS NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME STATIONS NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME STATION NEAR *</pattern><template>A</template></category>
-    <category><pattern>SHOW ME BIKES NEAR *</pattern><template>A</template></category>
-    <category><pattern>WHERE IS THE CLOSEST BIKE NEAR *</pattern><template>A</template></category>
-    <category><pattern>WHAT BIKES ARE NEAR *</pattern><template>A</template></category>
+    <category><pattern>SHOW ME CITIBIKES NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME DOCKS NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME STATIONS NEAR*</pattern><template>A</template></category>
+    <category><pattern>SHOW ME STATION NEAR*</pattern><template>A</template></category>
+    
+    <category><pattern>WHERE IS THE CLOSEST BIKE NEAR*</pattern><template>A</template></category>
+    <category><pattern>WHAT BIKES ARE NEAR*</pattern><template>A</template></category>
+    <category><pattern>BIKES CLOSE TO*</pattern><template>A</template></category>
+    <category><pattern>BIKES NEAR*</pattern><template>A</template></category>    
+    <category><pattern>BIKES AT*</pattern><template>A</template></category>
+	<category><pattern>BIKES IN*</pattern><template>A</template></category>
+    <category><pattern>BIKES*</pattern><template>A</template></category>
     
 
 
@@ -49,7 +44,7 @@
 <!--Template E it will handle video response-->
     <category><pattern>VIDEO*</pattern><template>E</template></category>
     <!--Template generice answers -->
-    <category><pattern>🚲 *</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
+    <category><pattern>🚲*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
      <category><pattern>SHOW ME 🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
      <category><pattern>SHOW ME 🚴</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
     <category><pattern>🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>

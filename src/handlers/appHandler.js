@@ -9,21 +9,28 @@ const citibikeServiceHandler = require('./citibikeServiceHandler');
 const Address = require('../models/address');
 const Response = require('../models/response');
 
+const punctRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\.\/:;<=>?\[\]^_`{|}~]/g;
+const spaceRE = /\s+/g;
 
 //exports
 module.exports = {
         parseMessage: function (request, reply) {
                 let message = request.payload;
                 let parsedMessage = new ParsedMessage({});
-                log.info(message.text);
+
+                message.text = message.text.replace(punctRE, '').replace(spaceRE, ' ');
+                log.info("message to parse - " + message.text);
+
                 aiml.findAnswerInLoadedAIMLFiles(message.text, function (answer, wildCardArray, input) {
                     switch (answer) {
                         case "A":
                             if (wildCardArray.length > 0) {
-                                let addressTypeOrStr = wildCardArray[0];
+                                log.info("wildCardArray - " + wildCardArray);
+                                let addressTypeOrStr = wildCardArray[0].trim();
                                 if (addressTypeOrStr.split(" ").length > 1) { // e.g show me bike near 135 river drive  
                                     //call google api and get address text and lat long
                                     const payload = 'citibike ' + addressTypeOrStr;
+                                    log.info("Calling googleApiServiceHandler.placeGeocode with pay load  - " + addressTypeOrStr);
                                     googleApiServiceHandler.placeGeocode(payload, function (result, error) {
                                         if (error) {
                                             log.info("placeGeocode - erver error - getting address" + error);
@@ -48,6 +55,7 @@ module.exports = {
                                     });
                                     //end of call citibikeServiceHandler.addressNearBy
                                 } else { //wildCardArray found only one word and assume it is work or home or similar address 
+                                    log.info("Calling userServiceHandler.getUserByAddressType with pay load  - " + addressTypeOrStr);
                                     userServiceHandler.getUserByAddressType(message.userId, addressTypeOrStr, function (result, error) {
                                         if (error) {
                                             log.info("getUserByAddressType - Server error - getting address" + error);
