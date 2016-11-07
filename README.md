@@ -1,5 +1,5 @@
 # service-decision-tree
-Message Parser and decision maker  : This microservice parses all messages and respond back required messages by 
+Facebook `Message Parser` and `Decision Maker`  : This microservice parses all messages and respond back required messages by 
 utilizing [AIML](https://en.wikipedia.org/wiki/AIML) and calling various other microservices.
 
 ##Getting Started
