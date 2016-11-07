@@ -11,7 +11,7 @@ module.exports = function (server, options) {
         config: {
             handler: appHandler.parseMessage,
             description: 'Parse given message and return  details',
-            notes: 'Returns prased message',
+            notes: 'All fields are required',
             tags: ['api'],
             validate: {
                 payload: Joi.object({
