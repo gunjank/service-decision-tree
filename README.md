@@ -23,3 +23,6 @@ From your application root folder`npm start`
 Application URL/documentation - Look on `Settings.js` file for local port number cloud url/port settings. 
 
 `http://localhost:3002/documentation`
+
+## Deployment - PCF 
+[cf push](https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html) -f manifest.yml   
