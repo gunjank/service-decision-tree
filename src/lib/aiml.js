@@ -6,10 +6,10 @@ let aimlInterpreter = new AIMLInterpreter({
 });
 aimlInterpreter.loadAIMLFilesIntoArray([__dirname + '/citibike.aiml.xml']);
 
-var callback = function (answer, wildCardArray, input) {
-    console.log(answer + ' | ' + wildCardArray + " | " + wildCardArray.length + ' | ' + input);
-    ///console.log(wildCardArray[0].trim() + "-  " + wildCardArray[0].trim().split(" ").length);
-};
+// var callback = function (answer, wildCardArray, input) {
+//     console.log(answer + ' | ' + wildCardArray + " | " + wildCardArray.length + ' | ' + input);
+//     ///console.log(wildCardArray[0].trim() + "-  " + wildCardArray[0].trim().split(" ").length);
+// };
 
 //aimlInterpreter.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('LATLONG LAT 40DOT746754625987 LONG 73DOT944012021375 ', callback);
