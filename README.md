@@ -24,4 +24,4 @@ Application URL/documentation - Look on `src\config\settings.js` file for local 
 `http://localhost:3002/documentation`
 
 ## Deployment - PCF 
-[cf push](https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html) -f manifest.yml   
+[cf push](https://docs.cloudfoundry.org/devguide/deploy-apps/deploy-app.html) -f manifest.yml   git 
