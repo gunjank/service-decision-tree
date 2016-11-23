@@ -116,7 +116,7 @@ module.exports = {
                                 //call google api and get address text and lat long
                                 const payload = 'citibike ' + addressTypeOrStr;
                                 log.info("Calling googleApiServiceHandler.placeGeocode with pay load  - " + addressTypeOrStr);
-                                googleApiServiceHandler.placeGeocode(payload, function (error, result) {
+                                googleApiServiceHandler.placeGeocode(payload, function (error, body) {
                                     if (error) {
                                         log.info("placeGeocode - erver error - getting address" + error);
                                         commonErrorHelp(reply);
