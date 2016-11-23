@@ -12,8 +12,10 @@ const userServiceHandler = {
             method: 'POST',
             json: payloadData
         }, function (error, response, body) {
-            if (error) log.error("User update/insert failed, deails - " + error);
-            if (response) log.info("User update/insert service response status message is " + response.statusMessage);
+            if (error)
+                log.error("User update/insert failed, deails - " + error);
+            if (response)
+                log.info("User update/insert service response status message is " + response.statusMessage);
 
             cb(response, error);
         });
@@ -25,8 +27,11 @@ const userServiceHandler = {
             method: 'GET'
 
         }, function (error, response, body) {
-            if (error) log.error("Get user failed error details - " + error);
-            if (response) log.info("Get user  response status message is " + response.statusMessage);
+            if (error)
+                log.error("Get user failed error details - " + error);
+            if (response)
+                log.info("Get user  response status message is " + response.statusMessage);
+
             cb(response, error);
         });
     },
@@ -37,8 +42,11 @@ const userServiceHandler = {
             method: 'GET'
 
         }, function (error, response, body) {
-            if (error) log.error("Get user ByAddressType failed error details -  " + error);
-            if (response) log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
+            if (error)
+                log.error("Get user ByAddressType failed error details -  " + error);
+            if (response)
+                log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
+
             cb(response, error);
         });
     },
@@ -48,8 +56,11 @@ const userServiceHandler = {
             method: 'POST',
             json: payloadData
         }, function (error, response, body) {
-            if (error) log.error("Get user ByAddressType failed error details -  " + error);
-            if (response) log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
+            if (error)
+                log.error("Get user ByAddressType failed error details -  " + error);
+            if (response)
+                log.info("Get user ByAddressType  response status message is - " + response.statusMessage);
+
             cb(response, error);
         });
     },
@@ -75,6 +86,5 @@ const userServiceHandler = {
             };
         });
     }
-
 }
 module.exports = userServiceHandler;

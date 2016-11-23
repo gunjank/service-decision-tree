@@ -5,6 +5,5 @@ const Response = function (o) {
     this.message = o.message;
     this.data = o.data;
     this.error = o.error;
-
 }
 module.exports = Response;

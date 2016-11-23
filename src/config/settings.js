@@ -1,7 +1,6 @@
 'use strict';
 
-
-let getUserService = function () {
+const getUserService = function () {
     if (process.env.NODE_ENV === 'PRODUCTION') {
         return `https://service-user.cfapps.io/v1/user`;
     } else {
@@ -9,7 +8,7 @@ let getUserService = function () {
     }
 }
 
-let getGoogleApiService = function () {
+const getGoogleApiService = function () {
     if (process.env.NODE_ENV === 'PRODUCTION') {
         return `https://service-google-api.cfapps.io/v1/googleApi`;
     } else {
@@ -17,7 +16,7 @@ let getGoogleApiService = function () {
     }
 }
 
-let getCitiBikeService = function () {
+const getCitiBikeService = function () {
     if (process.env.NODE_ENV === 'PRODUCTION') {
         return `https://service-citibike.cfapps.io/v1`;
     } else {
@@ -25,12 +24,10 @@ let getCitiBikeService = function () {
     }
 }
 
-
-let settings = {
+const settings = {
     userService: getUserService(),
     googleApiService: getGoogleApiService(),
     citiBikeService: getCitiBikeService(),
-    noAddressFound: `I was unable to find that address. Please try a different address!`,
     port: process.env.PORT || '3002'
 }
 

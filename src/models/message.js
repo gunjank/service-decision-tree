@@ -1,6 +1,6 @@
 'use strict';
 
-let Message = function () {
+const Message = function () {
     //constructor 
 }
 Message.prototype.userId = function (userId) {

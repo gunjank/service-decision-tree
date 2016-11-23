@@ -18,6 +18,5 @@ const ParsedMessage = function (o) {
     this.message = o.message; //text
     this.data = o.data; //json
     this.error = o.error;
-
 }
 module.exports = ParsedMessage;
