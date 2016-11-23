@@ -1,3 +1,3 @@
 'use strict';
 
-let app = require('./src/index'); //you main application file
+const app = require('./src/index'); // main application file

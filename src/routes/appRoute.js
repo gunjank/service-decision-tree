@@ -1,10 +1,9 @@
 'use strict';
 
-const Joi = require('joi');
-let appHandler = require('../handlers/appHandler');
+const Joi = require('joi'),
+    appHandler = require('../handlers/appHandler');
 
-module.exports = function (server, options) {
-
+module.exports = function (server) {
     server.route({
         method: 'post',
         path: '/v1/message',

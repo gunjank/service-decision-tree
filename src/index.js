@@ -1,10 +1,10 @@
 'use strict';
 
-let path = require('path'),
+const log = require('./config/logger'),
+    path = require('path'),
     Lout = require('lout'),
     Good = require('good'),
     GoodFile = require('good-file'),
-    bunyan = require('bunyan'),
     Hapi = require('hapi'),
     Inert = require('inert'),
     Vision = require('vision'),
@@ -12,19 +12,10 @@ let path = require('path'),
     settings = require('./config/settings'),
     Pack = require('../package');
 
-
-
-//log clas will now globally available
-global.log = bunyan.createLogger({
-    name: 'service-decision-tree'
-});
-
-
-
 /**
  * Construct the server
  */
-let server = new Hapi.Server({
+const server = new Hapi.Server({
     connections: {
         routes: {
             cors: true,
@@ -46,8 +37,8 @@ server.connection({
     port: settings.port
 
 });
-//debug('added port: ', config.port);
-let swaggerOptions = {
+
+const swaggerOptions = {
     info: {
         'title': 'API Documentation',
         'version': Pack.version
@@ -66,7 +57,7 @@ server.register([Inert, Vision, {
 /**
  * Build a logger for the server & each service
  */
-let reporters = [new GoodFile({
+const reporters = [new GoodFile({
     log: '*'
 }, __dirname + '/../logs/server.log')];
 //if you want to serve static files 
@@ -93,7 +84,9 @@ server.register({
 }, function (err) {
     if (err) throw new Error(err);
 
-    log.debug('registered Good for logging with reporters: ', reporters);
+    log.debug({
+        reporters: reporters
+    }, 'registered Good for logging with reporters: ');
 });
 
 /**
@@ -113,13 +106,13 @@ server.register({
 server.start(function (err) {
     if (err) throw new Error(err);
     log.info('server started!');
-    let summary = server.connections.map(function (cn) {
+    const summary = server.connections.map(function (cn) {
         return {
             labels: cn.settings.labels,
             uri: cn.info.uri
         };
     });
-    let appRoute = require(__dirname + '/routes/appRoute')(server);
+    const appRoute = require(__dirname + '/routes/appRoute')(server);
     log.info('Connections: ', summary);
     server.log('server', 'started: ' + JSON.stringify(summary));
 });

@@ -1,8 +1,9 @@
 'use strict';
 
 
-var request = require('request');
-const settings = require('../config/settings');
+const log = require('../config/logger'),
+    request = require('request'),
+    settings = require('../config/settings');
 
 let googleApiServiceHandler = {
 

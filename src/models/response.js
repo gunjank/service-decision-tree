@@ -1,7 +1,6 @@
 'use strict';
 
-
-let Response = function (o) {
+const Response = function (o) {
     this.statusCode = o.statusCode;
     this.message = o.message;
     this.data = o.data;

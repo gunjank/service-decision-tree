@@ -9,9 +9,10 @@
  * 4 = GREETINGS 
  * 5 = generic answer from aiml
  * 6 = video message 
- * 
+ * 7 = accounts details found
+ * 8 = asking for account authorization
  */
-let ParsedMessage = function (o) {
+const ParsedMessage = function (o) {
     this.messageCode = o.messageCode;
     this.messageType = o.messageType;
     this.message = o.message; //text

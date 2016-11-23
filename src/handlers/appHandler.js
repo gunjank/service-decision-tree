@@ -1,13 +1,13 @@
 'use strict';
 
-let Message = require('../models/message');
-let ParsedMessage = require('../models/parsedMessage');
-let aiml = require('../lib/aiml');
-const userServiceHandler = require('./userServiceHandler');
-const googleApiServiceHandler = require('./googleApiServiceHandler');
-const citibikeServiceHandler = require('./citibikeServiceHandler');
-const Address = require('../models/address');
-const Response = require('../models/response');
+const log = require('../config/logger'),
+    ParsedMessage = require('../models/parsedMessage'),
+    aiml = require('../lib/aiml'),
+    userServiceHandler = require('./userServiceHandler'),
+    googleApiServiceHandler = require('./googleApiServiceHandler'),
+    citibikeServiceHandler = require('./citibikeServiceHandler'),
+    Address = require('../models/address'),
+    Response = require('../models/response');
 
 const punctRE = /[\u2000-\u206F\u2E00-\u2E7F\\'!"#$%&()*+,\.\/:;<=>?\[\]^_`{|}~]/g;
 const spaceRE = /\s+/g;
@@ -75,10 +75,7 @@ module.exports = {
 
                                             } else { // no matching address found 
                                                 aiml.findAnswerInLoadedAIMLFiles("FORMAT : PLEASE PROVIDE YOUR " + addressTypeOrStr + " ADDRESS", function (answer, wildCardArray, input) {
-                                                    parsedMessage.messageType = "need_address_to_save";
-                                                    parsedMessage.messageCode = 2;
-                                                    parsedMessage.message = answer;
-                                                    reply(parsedMessage);
+                                                    messageType2(reply, answer);
                                                 });
                                             }
                                         } //end of else for user address by type success
@@ -93,7 +90,6 @@ module.exports = {
                             break;
 
                         case "B":
-                            //reply("case B");
                             if (wildCardArray.length > 1) {
                                 let payload = wildCardArray[1];
                                 googleApiServiceHandler.placeGeocode(payload, function (result, error) {
@@ -106,7 +102,7 @@ module.exports = {
                                             log.info("google returned location, updated user address in db")
                                             let userAddress = {};
                                             userAddress.user_id = message.userId;
-                                            let location = response.data.results[0].geometry.location;
+                                            const location = response.data.results[0].geometry.location;
                                             userAddress.lon = location.lng;
                                             userAddress.lat = location.lat
                                             userAddress.type = wildCardArray[0];
@@ -115,20 +111,15 @@ module.exports = {
 
                                             userServiceHandler.createOrUpdateUserAddress(userAddress, function (result, error) {
                                                 if (error) {
-                                                    log.info("createOrUpdateUserAddress -  Server error - update/save  user address" + error);
+                                                    log.error("createOrUpdateUserAddress -  Server error - update/save  user address" + error);
                                                     commonErrorHelp(reply);
                                                 } else {
                                                     let responseAddressUpdate = new Response(result.body);
                                                     if (responseAddressUpdate.statusCode === 1) {
-                                                        parsedMessage.messageType = "address_saved";
-                                                        parsedMessage.messageCode = 3;
-                                                        parsedMessage.message = "Given address saved successfully!";
-                                                        reply(parsedMessage);
-
+                                                        messageType3(reply);
                                                     } else {
                                                         log.info("unable to save your address");
                                                         commonErrorHelp(reply);
-
                                                     }
                                                 }
                                             });
@@ -144,14 +135,11 @@ module.exports = {
                             }
                             break;
                         case "C":
-                            parsedMessage.messageType = "greetings";
-                            parsedMessage.messageCode = 4;
-                            parsedMessage.message = "greetings template";
-                            reply(parsedMessage);
+                            messageType4(reply);
                             break;
                         case "D":
                             if (wildCardArray.length > 1) {
-                                let re = new RegExp("DOT");
+                                const re = new RegExp("DOT");
                                 const nearByAddPayload = {
                                     lat: wildCardArray[0].replace(re, "."),
                                     lon: wildCardArray[1].replace(re, ".")
@@ -163,8 +151,11 @@ module.exports = {
                                 commonErrorHelp(reply);
                             }
                             break;
-                        case "E":
+                        case "E": //video
                             messageType6(reply, answer)
+                            break;
+                        case "F": //accounts
+                            messageType7(reply, message.userId)
                             break;
                         default:
                             if (answer != null && answer != "") {
@@ -179,28 +170,75 @@ module.exports = {
             } //parseMessage functio ends here 
     } //module export ends here
 
-let commonErrorHelp = function (reply) {
+const commonErrorHelp = function (reply) {
     aiml.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", function (answer, wildCardArray, input) {
-        let re = new RegExp('@@@', 'gi');
+        const re = new RegExp('@@@', 'gi');
         answer = answer.replace(re, "\r\n");
         messageType5(reply, answer);
     });
 }
-let messageType5 = function (reply, msg) {
-    let parsedMessage = new ParsedMessage({});
+const messageType2 = function (reply, msg) {
+    const parsedMessage = new ParsedMessage({});
+    parsedMessage.messageType = "need_address_to_save";
+    parsedMessage.messageCode = 2;
+    parsedMessage.message = msg;
+    reply(parsedMessage);
+}
+const messageType3 = function (reply) {
+    const parsedMessage = new ParsedMessage({});
+    parsedMessage.messageType = "address_saved";
+    parsedMessage.messageCode = 3;
+    parsedMessage.message = "Given address saved successfully!";
+    reply(parsedMessage);
+}
+const messageType4 = function (reply) {
+    const parsedMessage = new ParsedMessage({});
+    parsedMessage.messageType = "greetings";
+    parsedMessage.messageCode = 4;
+    parsedMessage.message = "greetings template";
+    reply(parsedMessage);
+}
+const messageType5 = function (reply, msg) {
+    const parsedMessage = new ParsedMessage({});
     parsedMessage.messageType = "generic_answer";
     parsedMessage.messageCode = 5;
     parsedMessage.message = msg;
     reply(parsedMessage);
 }
-let messageType6 = function (reply, msg) {
-    let parsedMessage = new ParsedMessage({});
+const messageType6 = function (reply, msg) { //video
+    const parsedMessage = new ParsedMessage({});
     parsedMessage.messageType = "video";
     parsedMessage.messageCode = 6;
     parsedMessage.message = msg;
     reply(parsedMessage);
 }
-let nearByAddressService = function (reply, nearByAddPayload) {
+const messageType7 = function (reply, userId) { //accounts
+    const parsedMessage = new ParsedMessage({});
+    userServiceHandler.getUserAccounts(userId, (error, response) => {
+        if (error) {
+            log.error({
+                error: error,
+            }, 'method messageType7, getUserAccounts got error or null response/body ');
+            commonErrorHelp(reply);
+        } else {
+            if (response.statusCode === 1) {
+                parsedMessage.messageType = "accounts_available";
+                parsedMessage.messageCode = 7;
+                parsedMessage.data = response.data;
+                parsedMessage.message = response.message;
+            } else {
+                parsedMessage.messageType = "no_account_found";
+                parsedMessage.messageCode = 8;
+                parsedMessage.message = "No matching record found";
+            }
+            reply(parsedMessage);
+        }
+    });
+
+
+}
+
+const nearByAddressService = function (reply, nearByAddPayload) {
     citibikeServiceHandler.addressNearBy(nearByAddPayload, function (result, error) {
         if (error) {
             log.info("citibikeServiceHandler.addressNearBy - Server error - getting addressNearBy from citibike api" + error);

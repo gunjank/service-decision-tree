@@ -1,7 +1,7 @@
 'use strict';
 
 const AIMLInterpreter = require('aimlinterpreter');
-let aimlInterpreter = new AIMLInterpreter({
+const aimlInterpreter = new AIMLInterpreter({
 
 });
 aimlInterpreter.loadAIMLFilesIntoArray([__dirname + '/citibike.aiml.xml']);
@@ -13,7 +13,7 @@ aimlInterpreter.loadAIMLFilesIntoArray([__dirname + '/citibike.aiml.xml']);
 
 //aimlInterpreter.findAnswerInLoadedAIMLFiles("ERROR MESSAGE", callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('LATLONG LAT 40DOT746754625987 LONG 73DOT944012021375 ', callback);
-//aimlInterpreter.findAnswerInLoadedAIMLFiles('show me bikes near home', callback);
+//aimlInterpreter.findAnswerInLoadedAIMLFiles('ACCOUNT', callback);
 //aimlInterpreter.findAnswerInLoadedAIMLFiles('video', callback);
 // aimlInterpreter.findAnswerInLoadedAIMLFiles('SHOW ME BIKES NEAR HOME', function (answer, wildCardArray) {
 //     console.log(answer + ' | ' + wildCardArray + ' | ');

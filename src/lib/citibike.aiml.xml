@@ -43,6 +43,10 @@
     <category><pattern>LATLONG LAT * LONG * </pattern><template>D</template></category>
 <!--Template E it will handle video response-->
     <category><pattern>VIDEO*</pattern><template>E</template></category>
+    <!--Template F - it will handle account details-->
+     <category><pattern>*ACCOUNT*</pattern><template>F</template></category>    
+        
+    
     <!--Template generice answers -->
     <category><pattern>🚲*</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
      <category><pattern>SHOW ME 🚴🏻‍♀️</pattern><template>Sure! Send me the address and I’ll locate the nearest ones.</template></category>
