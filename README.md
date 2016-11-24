@@ -1,4 +1,4 @@
-# service-decision-tree
+# service-decision-tree  -- Chat Bot helper library 
 Facebook `Message Parser` and `Decision Maker`  : This microservice parses all messages and respond back required messages by 
 utilizing [AIML](https://en.wikipedia.org/wiki/AIML) and calling various other microservices.
 
